@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { Box } from "@mui/material";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Main from "./components/Main";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Box
+      sx={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(4, 1fr)',
+        gap: 1,
+        gridTemplateRows: 'auto',
+        gridTemplateAreas: `"header header header header"
+      "main main main main"
+      "footer footer footer footer"`,
+      }}
+    >
+    <Box sx={{ gridArea: 'header' }}><Header /></Box>
+    <Box sx={{ gridArea: 'main' }}><Main /></Box>
+    {/* <Box sx={{ gridArea: 'sidebar', bgcolor: 'error.main' }}>Sidebar</Box> */}
+    <Box sx={{ gridArea: 'footer'}}><Footer /></Box>
+  </Box>
+  </>
   );
 }
 
