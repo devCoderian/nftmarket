@@ -36,7 +36,7 @@ const Continer = styled.div`
         }
     }
     .item{
-        flex: 0 0 250px; // 자식 요소에게 플랙스 그로우 1을 적용
+        flex: 0 0 300px; // 자식 요소에게 플랙스 그로우 1을 적용
         margin-top: 40px;
         .search-width{
             width: 30%;

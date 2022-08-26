@@ -41,18 +41,19 @@ const Login = () => {
             email,
             password
         }
-        // axios.get('/api/users').then((res) => console.log(res));
-        axios.post('/api/users/insert', data)
+        axios.post('/user/login', data)
         .then((res) => {
-            console.log(res);
-            goToLogin();
-        }).catch(e => console.log(e));
-        
+            if(res.status === 200){
+                alert(`${res.data.nickname} 로그인 완료`);
+            }
+            console.log(res.data);
+        })
+        .catch((e) => console.log(e));
     }
 
     const goSignPage = () => {
-        console.log('loginPage');
-        navigate('/signup')
+        console.log('signup page');
+        navigate('/signup');
     };
 
     return (
@@ -65,6 +66,7 @@ const Login = () => {
                 id="outlined-required"
                 label="Required"
                 placeholder="email"
+                name = "email"
                 onChange={(e) => setEmail(e.target.value)}
              />
              <p>password</p>
@@ -74,6 +76,7 @@ const Login = () => {
                 label="Password"
                 type="password"
                 placeholder="password"
+                name = "password"
                 onChange={(e) => setPassword(e.target.value)}
              />
             <Button variant="contained" type = "submit">로그인</Button>

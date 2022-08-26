@@ -10,7 +10,8 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     margin: 0 100px;
-    height: 60px;
+    height: 130px;
+    margin-bottom: 30px;
 `
 
 const Header = () => {
