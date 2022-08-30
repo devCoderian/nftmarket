@@ -27,7 +27,7 @@ const useModal = () => {
     const [modalOpened, setModalOpened] = useState(false);
 
     const openModal = () => {
-        console.log('GHKRDL ')
+        console.log('GHKRDL')
         setModalOpened(true);
     }
     const closeModal = () => {
@@ -45,6 +45,7 @@ const useModal = () => {
                 ref.current = dom;
             }
         },[]);
+        
         if(ref.current && mounted && modalOpened){
             return createPortal(
                 <Container>
