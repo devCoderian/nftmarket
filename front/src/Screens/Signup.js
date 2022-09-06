@@ -26,7 +26,7 @@ const Container = styled.div`
 const SignUp = () => {
     
     const get = async() => {
-        let test = await axios.get('/api/users').then((res) => {
+        let test = await axios.get('/').then((res) => {
             return res.data;
         });
         console.log(test);
@@ -64,6 +64,7 @@ const SignUp = () => {
     };
 
     return (
+        
         <Container>
             <form onSubmit={onSubmit}>
             <p>email</p>

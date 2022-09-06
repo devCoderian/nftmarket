@@ -1,7 +1,7 @@
 import { Button, TextField, p } from "@mui/material";
 import React, {useState} from "react";
 import styled from "styled-components";
-import axios from 'axios';
+import axios, { Axios } from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
@@ -41,14 +41,26 @@ const Login = () => {
             email,
             password
         }
-        axios.post('/user/login', data)
+        
+        axios.post('api/user/login', data)
         .then((res) => {
             if(res.status === 200){
                 alert(`${res.data.nickname} 로그인 완료`);
             }
             console.log(res.data);
+            //이동하기
+            navigate('/');
         })
-        .catch((e) => console.log(e));
+        .catch((e) => console.log('error', e));
+        
+        // axios.post('/user/login', data)
+        // .then((res) => {
+        //     if(res.status === 200){
+        //         alert(`${res.data.nickname} 로그인 완료`);
+        //     }
+        //     console.log(res.data);
+        // })
+        // .catch((e) => console.log('error', e));
     }
 
     const goSignPage = () => {
